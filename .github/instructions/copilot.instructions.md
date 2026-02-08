@@ -60,3 +60,5 @@
 - **Lint/format**: `pnpm check`
 - **Tests**: `pnpm test`
 - **Build**: `pnpm build`
+
+If you are coding together with a human, do NOT use scripts/committer, but git directly and run the above commands manually to ensure quality.
