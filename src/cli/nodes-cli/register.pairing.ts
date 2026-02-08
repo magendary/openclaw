@@ -3,7 +3,8 @@ import type { NodesRpcOpts } from "./types.js";
 import { defaultRuntime } from "../../runtime.js";
 import { renderTable } from "../../terminal/table.js";
 import { getNodesTheme, runNodesCommand } from "./cli-utils.js";
-import { formatAge, parsePairingList } from "./format.js";
+import { parsePairingList } from "./format.js";
+import { formatTimeAgo } from "../../infra/format-relative.ts";
 import { callGatewayCli, nodesCallOpts, resolveNodeId } from "./rpc.js";
 
 export function registerNodesPairingCommands(nodes: Command) {
@@ -33,7 +34,7 @@ export function registerNodesPairingCommands(nodes: Command) {
             IP: r.remoteIp ?? "",
             Requested:
               typeof r.ts === "number"
-                ? `${formatAge(Math.max(0, now - r.ts))} ago`
+                ? formatTimeAgo(Math.max(0, now - r.ts))
                 : muted("unknown"),
             Repair: r.isRepair ? warn("yes") : "",
           }));
