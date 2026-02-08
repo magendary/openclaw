@@ -19,7 +19,10 @@ export function formatDurationSeconds(
 }
 
 /** Precise decimal-seconds output: "500ms" or "1.23s". Input is milliseconds. */
-export function formatDurationPrecise(ms: number, options: FormatDurationSecondsOptions = {}): string {
+export function formatDurationPrecise(
+  ms: number,
+  options: FormatDurationSecondsOptions = {},
+): string {
   if (!Number.isFinite(ms)) {
     return "unknown";
   }

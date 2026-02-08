@@ -1112,7 +1112,9 @@ function renderAgentChannels(params: {
     params.agentIdentity,
   );
   const entries = resolveChannelEntries(params.snapshot);
-  const lastSuccessLabel = params.lastSuccess ? formatRelativeTimestamp(params.lastSuccess) : "never";
+  const lastSuccessLabel = params.lastSuccess
+    ? formatRelativeTimestamp(params.lastSuccess)
+    : "never";
   return html`
     <section class="grid grid-cols-2">
       ${renderAgentContextCard(context, "Workspace, identity, and model configuration.")}

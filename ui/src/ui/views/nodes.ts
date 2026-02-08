@@ -189,7 +189,9 @@ function renderPairedDevice(device: PairedDevice, props: NodesProps) {
 function renderTokenRow(deviceId: string, token: DeviceTokenSummary, props: NodesProps) {
   const status = token.revokedAtMs ? "revoked" : "active";
   const scopes = `scopes: ${formatList(token.scopes)}`;
-  const when = formatRelativeTimestamp(token.rotatedAtMs ?? token.createdAtMs ?? token.lastUsedAtMs ?? null);
+  const when = formatRelativeTimestamp(
+    token.rotatedAtMs ?? token.createdAtMs ?? token.lastUsedAtMs ?? null,
+  );
   return html`
     <div class="row" style="justify-content: space-between; gap: 8px;">
       <div class="list-sub">${token.role} · ${status} · ${scopes} · ${when}</div>
