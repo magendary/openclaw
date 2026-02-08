@@ -10,13 +10,13 @@ import { resolveModelAuthMode } from "../agents/model-auth.js";
 import { resolveConfiguredModelRef } from "../agents/model-selection.js";
 import { resolveSandboxRuntimeStatus } from "../agents/sandbox.js";
 import { derivePromptTokens, normalizeUsage, type UsageLike } from "../agents/usage.js";
-import { formatTimeAgo } from "../infra/format-relative.ts";
 import {
   resolveMainSessionKey,
   resolveSessionFilePath,
   type SessionEntry,
   type SessionScope,
 } from "../config/sessions.js";
+import { formatTimeAgo } from "../infra/format-time/format-relative.ts";
 import { resolveCommitHash } from "../infra/git-commit.js";
 import { listPluginCommands } from "../plugins/commands.js";
 import {
@@ -134,7 +134,6 @@ export const formatContextUsageShort = (
   total: number | null | undefined,
   contextTokens: number | null | undefined,
 ) => `Context ${formatTokens(total, contextTokens ?? null)}`;
-
 
 const formatQueueDetails = (queue?: QueueStatus) => {
   if (!queue) {

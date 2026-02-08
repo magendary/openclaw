@@ -1,5 +1,5 @@
 import type { GatewayStatusSummary } from "./tui-types.js";
-import { formatTimeAgo } from "../infra/format-relative.ts";
+import { formatTimeAgo } from "../infra/format-time/format-relative.ts";
 import { formatTokenCount } from "../utils/usage-format.js";
 import { formatContextUsageLine } from "./tui-formatters.js";
 

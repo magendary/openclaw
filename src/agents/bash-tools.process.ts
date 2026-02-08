@@ -1,5 +1,6 @@
 import type { AgentTool } from "@mariozechner/pi-agent-core";
 import { Type } from "@sinclair/typebox";
+import { formatDurationCompact } from "../infra/format-time/format-duration.ts";
 import {
   deleteSession,
   drainSession,
@@ -10,7 +11,6 @@ import {
   markExited,
   setJobTtlMs,
 } from "./bash-process-registry.js";
-import { formatDurationCompact } from "../infra/format-duration.ts";
 import {
   deriveSessionName,
   killSession,

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { formatZonedTimestamp } from "../../infra/format-datetime.js";
+import { formatZonedTimestamp } from "../../infra/format-time/format-datetime.js";
 import { injectTimestamp, timestampOptsFromConfig } from "./agent-timestamp.js";
 
 describe("injectTimestamp", () => {

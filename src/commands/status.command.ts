@@ -5,6 +5,7 @@ import { withProgress } from "../cli/progress.js";
 import { resolveGatewayPort } from "../config/config.js";
 import { buildGatewayConnectionDetails, callGateway } from "../gateway/call.js";
 import { info } from "../globals.js";
+import { formatTimeAgo } from "../infra/format-time/format-relative.ts";
 import { formatUsageReportLines, loadProviderUsageSummary } from "../infra/provider-usage.js";
 import {
   formatUpdateChannelLabel,
@@ -31,7 +32,6 @@ import {
   formatTokensCompact,
   shortenText,
 } from "./status.format.js";
-import { formatTimeAgo } from "../infra/format-relative.ts";
 import { resolveGatewayProbeAuth } from "./status.gateway-probe.js";
 import { scanStatus } from "./status.scan.js";
 import {

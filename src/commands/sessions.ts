@@ -5,7 +5,7 @@ import { resolveConfiguredModelRef } from "../agents/model-selection.js";
 import { loadConfig } from "../config/config.js";
 import { loadSessionStore, resolveStorePath, type SessionEntry } from "../config/sessions.js";
 import { info } from "../globals.js";
-import { formatTimeAgo } from "../infra/format-relative.ts";
+import { formatTimeAgo } from "../infra/format-time/format-relative.ts";
 import { isRich, theme } from "../terminal/theme.js";
 
 type SessionRow = {

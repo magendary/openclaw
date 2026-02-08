@@ -1,5 +1,5 @@
 import { html, svg, nothing } from "lit";
-import { formatDurationCompact } from "../../../../src/infra/format-duration.ts";
+import { formatDurationCompact } from "../../../../src/infra/format-time/format-duration.ts";
 import { extractQueryTerms, filterSessionsByQuery, parseToolSummary } from "../usage-helpers.ts";
 
 // Inline styles for usage view (app uses light DOM, so static styles don't work)
@@ -3438,7 +3438,10 @@ function renderUsageInsights(
     stats.throughputCostPerMin !== undefined
       ? `${formatCost(stats.throughputCostPerMin, 4)} / min`
       : "—";
-  const avgDurationLabel = stats.durationCount > 0 ? (formatDurationCompact(stats.avgDurationMs, { spaced: true }) ?? "—") : "—";
+  const avgDurationLabel =
+    stats.durationCount > 0
+      ? (formatDurationCompact(stats.avgDurationMs, { spaced: true }) ?? "—")
+      : "—";
   const cacheHint = "Cache hit rate = cache read / (input + cache read). Higher is better.";
   const errorHint = "Error rate = errors / total messages. Lower is better.";
   const throughputHint = "Throughput shows tokens per minute over active time. Higher is better.";

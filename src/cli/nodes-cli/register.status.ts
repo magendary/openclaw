@@ -1,12 +1,12 @@
 import type { Command } from "commander";
 import type { NodesRpcOpts } from "./types.js";
+import { formatTimeAgo } from "../../infra/format-time/format-relative.ts";
 import { defaultRuntime } from "../../runtime.js";
 import { renderTable } from "../../terminal/table.js";
 import { shortenHomeInString } from "../../utils.js";
 import { parseDurationMs } from "../parse-duration.js";
 import { getNodesTheme, runNodesCommand } from "./cli-utils.js";
 import { formatPermissions, parseNodeList, parsePairingList } from "./format.js";
-import { formatTimeAgo } from "../../infra/format-relative.ts";
 import { callGatewayCli, nodesCallOpts, resolveNodeId } from "./rpc.js";
 
 function formatVersionLabel(raw: string) {
@@ -398,7 +398,7 @@ export function registerNodesStatusCommands(nodes: Command) {
                 IP: n.remoteIp ?? "",
                 LastConnect:
                   typeof lastConnectedAtMs === "number"
-                  ? formatTimeAgo(Math.max(0, now - lastConnectedAtMs))
+                    ? formatTimeAgo(Math.max(0, now - lastConnectedAtMs))
                     : muted("unknown"),
               };
             });

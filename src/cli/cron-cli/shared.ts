@@ -2,7 +2,7 @@ import type { CronJob, CronSchedule } from "../../cron/types.js";
 import type { GatewayRpcOpts } from "../gateway-rpc.js";
 import { listChannelPlugins } from "../../channels/plugins/index.js";
 import { parseAbsoluteTimeMs } from "../../cron/parse.js";
-import { formatDurationHuman } from "../../infra/format-duration.ts";
+import { formatDurationHuman } from "../../infra/format-time/format-duration.ts";
 import { defaultRuntime } from "../../runtime.js";
 import { colorize, isRich, theme } from "../../terminal/theme.js";
 import { callGatewayFromCli } from "../gateway-rpc.js";

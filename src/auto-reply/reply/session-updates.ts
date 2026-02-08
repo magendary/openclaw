@@ -9,7 +9,7 @@ import {
   resolveTimezone,
   formatUtcTimestamp,
   formatZonedTimestamp,
-} from "../../infra/format-datetime.ts";
+} from "../../infra/format-time/format-datetime.ts";
 import { getRemoteSkillEligibility } from "../../infra/skills-remote.js";
 import { drainSystemEventEntries } from "../../infra/system-events.js";
 
@@ -78,9 +78,7 @@ export async function prependSystemEvents(params: {
     if (zone.mode === "local") {
       return formatZonedTimestamp(date, { seconds: true }) ?? "unknown-time";
     }
-    return (
-      formatZonedTimestamp(date, { timeZone: zone.timeZone, seconds: true }) ?? "unknown-time"
-    );
+    return formatZonedTimestamp(date, { timeZone: zone.timeZone, seconds: true }) ?? "unknown-time";
   };
 
   const systemLines: string[] = [];

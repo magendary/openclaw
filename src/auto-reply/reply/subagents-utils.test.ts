@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { SubagentRunRecord } from "../../agents/subagent-registry.js";
-import { formatDurationCompact } from "../../infra/format-duration.js";
+import { formatDurationCompact } from "../../infra/format-time/format-duration.js";
 import {
   formatRunLabel,
   formatRunStatus,
