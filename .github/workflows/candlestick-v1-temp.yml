@@ -1,4 +1,4 @@
-name: Temporary candlestick V1 backtest
+name: Temporary candlestick V1 source materialization
 
 on:
   pull_request:
@@ -9,49 +9,30 @@ permissions:
   contents: write
 
 jobs:
-  backtest:
+  materialize:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      - name: Expand V1 source
+      - name: Expand source into isolated directory
         run: |
           base64 --decode candlestick_payload.b64 > /tmp/candlestick-v1.tar.gz
-          tar -xzf /tmp/candlestick-v1.tar.gz
+          rm -rf candlestick-v1-source
+          mkdir -p candlestick-v1-source
+          tar -xzf /tmp/candlestick-v1.tar.gz -C candlestick-v1-source
+          find candlestick-v1-source -type d -name __pycache__ -prune -exec rm -rf {} +
+          rm -rf candlestick-v1-source/.pytest_cache
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-
-      - name: Install and test
-        run: |
-          python -m pip install -e '.[dev]'
-          pytest -q
-
-      - name: Backtest 288 UTC windows
-        run: |
-          candlestick-backtest \
-            --symbol BTCUSDT \
-            --train-start 2025-01-01 \
-            --test-date 2025-12-31 \
-            --output-dir reports/2025-12-31
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: candlestick-v1-backtest-2025-12-31
-          path: reports/2025-12-31
-
-      - name: Commit report to temporary branch
+      - name: Commit materialized source
         env:
           TARGET_BRANCH: ${{ github.head_ref }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/2025-12-31
-          git commit -m "Temporary candlestick V1 backtest results [skip ci]"
+          git add candlestick-v1-source
+          git commit -m "Materialize temporary candlestick V1 source [skip ci]"
           git push origin "HEAD:${TARGET_BRANCH}"
