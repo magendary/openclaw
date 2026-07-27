@@ -1,0 +1,123 @@
+{
+  "symbol": "BTCUSDT",
+  "train_start": "2025-01-01",
+  "test_date": "2025-12-31",
+  "train_windows": 104832,
+  "test_windows": 288,
+  "metrics": [
+    {
+      "elapsed_seconds": 60,
+      "predictions": 288,
+      "model_accuracy": 0.6736111111111112,
+      "current_color_accuracy": 0.6736111111111112,
+      "brier_score": 0.21135847219159168,
+      "mean_confidence": 0.6321756856639067
+    },
+    {
+      "elapsed_seconds": 120,
+      "predictions": 288,
+      "model_accuracy": 0.7430555555555556,
+      "current_color_accuracy": 0.7430555555555556,
+      "brier_score": 0.17677827178838237,
+      "mean_confidence": 0.6988010776146967
+    },
+    {
+      "elapsed_seconds": 180,
+      "predictions": 288,
+      "model_accuracy": 0.8472222222222222,
+      "current_color_accuracy": 0.8472222222222222,
+      "brier_score": 0.12615571350882793,
+      "mean_confidence": 0.7645536341302166
+    },
+    {
+      "elapsed_seconds": 240,
+      "predictions": 288,
+      "model_accuracy": 0.9027777777777778,
+      "current_color_accuracy": 0.9027777777777778,
+      "brier_score": 0.08243253277837363,
+      "mean_confidence": 0.8407426453504255
+    },
+    {
+      "elapsed_seconds": "all",
+      "predictions": 1152,
+      "model_accuracy": 0.7916666666666666,
+      "current_color_accuracy": 0.7916666666666666,
+      "brier_score": 0.14918124756679388,
+      "mean_confidence": 0.7340682606898112
+    }
+  ],
+  "dynamic_thresholds": [
+    {
+      "threshold": 0.55,
+      "trades": 288,
+      "coverage": 1.0,
+      "accuracy": 0.7048611111111112,
+      "mean_entry_second": 70.83333333333333,
+      "mean_confidence": 0.6477681324213225
+    },
+    {
+      "threshold": 0.6,
+      "trades": 288,
+      "coverage": 1.0,
+      "accuracy": 0.7465277777777778,
+      "mean_entry_second": 85.83333333333333,
+      "mean_confidence": 0.6769672009315616
+    },
+    {
+      "threshold": 0.65,
+      "trades": 274,
+      "coverage": 0.9513888888888888,
+      "accuracy": 0.8321167883211679,
+      "mean_entry_second": 120.87591240875912,
+      "mean_confidence": 0.7355517556748069
+    },
+    {
+      "threshold": 0.7,
+      "trades": 261,
+      "coverage": 0.90625,
+      "accuracy": 0.8659003831417624,
+      "mean_entry_second": 141.83908045977012,
+      "mean_confidence": 0.7730246553768602
+    },
+    {
+      "threshold": 0.75,
+      "trades": 221,
+      "coverage": 0.7673611111111112,
+      "accuracy": 0.918552036199095,
+      "mean_entry_second": 162.0814479638009,
+      "mean_confidence": 0.8224396204671268
+    },
+    {
+      "threshold": 0.8,
+      "trades": 209,
+      "coverage": 0.7256944444444444,
+      "accuracy": 0.937799043062201,
+      "mean_entry_second": 191.77033492822966,
+      "mean_confidence": 0.8613545989934915
+    },
+    {
+      "threshold": 0.85,
+      "trades": 167,
+      "coverage": 0.5798611111111112,
+      "accuracy": 0.9640718562874252,
+      "mean_entry_second": 204.4311377245509,
+      "mean_confidence": 0.9008966233398249
+    },
+    {
+      "threshold": 0.9,
+      "trades": 142,
+      "coverage": 0.4930555555555556,
+      "accuracy": 0.9788732394366197,
+      "mean_entry_second": 221.83098591549296,
+      "mean_confidence": 0.9283866939413359
+    },
+    {
+      "threshold": 0.95,
+      "trades": 60,
+      "coverage": 0.20833333333333334,
+      "accuracy": 1.0,
+      "mean_entry_second": 237.0,
+      "mean_confidence": 0.9635975146588541
+    }
+  ]
+}
